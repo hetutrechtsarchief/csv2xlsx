@@ -29,6 +29,29 @@ for r, row in enumerate(tqdm(rows)):
 # load settings if supplied
 settings = json.load(open(settings_filename)) if settings_filename else None
 
+if "width" in settings and "height" in settings:
+    workbook.set_size(settings["width"], settings["height"])
+
+if "first_row_freeze" in settings and settings["first_row_freeze"]:
+    worksheet.freeze_panes(1, 0)  # Freeze the first row.
+
+if "first_row_bold" in settings and settings["first_row_bold"]:
+    cell_format = workbook.add_format({'bold': True})
+    worksheet.set_row(0, 20, cell_format) # for row 0, height=20, format=bold
+
+if "first_row_autofilter" in settings and settings["first_row_autofilter"],
+    worksheet.autofilter(0,0,len(rows),len(row)-1)
+
+if "column_widths" in settings:
+    for c, col_width in settings["column_widths"]:
+        cell_format = workbook.add_format()
+        
+        if "text_wrap" in settings and settings["text_wrap"]
+            cell_format.set_text_wrap()
+
+        worksheet.set_column(c, c, col_width, cell_format)
+
+
 
 #############
 # onderstaande settings nu uit JSON lezen!!
