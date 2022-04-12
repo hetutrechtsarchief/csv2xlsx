@@ -39,47 +39,17 @@ if "first_row_bold" in settings and settings["first_row_bold"]:
     cell_format = workbook.add_format({'bold': True})
     worksheet.set_row(0, 20, cell_format) # for row 0, height=20, format=bold
 
-if "first_row_autofilter" in settings and settings["first_row_autofilter"],
+if "first_row_autofilter" in settings and settings["first_row_autofilter"]:
     worksheet.autofilter(0,0,len(rows),len(row)-1)
 
 if "column_widths" in settings:
-    for c, col_width in settings["column_widths"]:
+    for c, col_width in enumerate(settings["column_widths"]):
         cell_format = workbook.add_format()
         
-        if "text_wrap" in settings and settings["text_wrap"]
+        if "text_wrap" in settings and settings["text_wrap"]:
             cell_format.set_text_wrap()
 
         worksheet.set_column(c, c, col_width, cell_format)
-
-
-
-#############
-# onderstaande settings nu uit JSON lezen!!
-
-# workbook.set_size(2000, 700)
-
-# worksheet.freeze_panes(1, 0)  # Freeze the first row.
-# cell_format = workbook.add_format({'bold': True})
-# worksheet.set_row(0, 20, cell_format) # for row 0, height=20, format=bold
-
-# # col: text
-# cell_format = workbook.add_format()
-# cell_format.set_text_wrap()
-# worksheet.set_column(2, 2, 100, cell_format) # text
-# worksheet.set_column(3, 3, 20, cell_format) # Datering
-# worksheet.set_column(4, 4, 5, cell_format) # Aantal
-# worksheet.set_column(5, 5, 20, cell_format) # UiterlijkeVorm
-# worksheet.set_column(6, 6, 30, cell_format) # Notabene
-
-# #col: code
-# cell_format = workbook.add_format({'num_format': '@'})
-# for r, row in enumerate(rows):
-#     if r==0:
-#         continue
-#     worksheet.write_string(r, 1, row[1], cell_format)
-
-# worksheet.autofilter(0,0,len(rows),len(row)-1)
-
 
 #############
 
