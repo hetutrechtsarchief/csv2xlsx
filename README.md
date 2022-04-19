@@ -8,7 +8,7 @@ csv2xlsl {input.csv} {output.xlsx} [settings.json]
 ## Example settings file
 ```json
 {
-    "width": 200,
+    "width": 2000,
     "height": 700,
     "first_row_freeze": true,
     "first_row_bold": true,
